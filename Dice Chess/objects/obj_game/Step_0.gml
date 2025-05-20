@@ -1,5 +1,5 @@
-global.display_width = display_get_width();
-global.display_height = display_get_height();
+//global.display_width = display_get_width();
+//global.display_height = display_get_height();
 
 
 
@@ -10,6 +10,10 @@ switch(state){
 	case State.MENU:
 		if (tap){
 			state = State.PLAYING;
+			fig[0] = choose(0,1,2,3,4,5);
+			fig[1] = choose(0,1,2,3,4,5);
+			fig[2] = choose(0,1,2,3,4,5);
+			tap = 0;
 		}
 	break;
 	case State.PLAYING:
@@ -22,6 +26,7 @@ switch(state){
 			fig[0] = choose(0,1,2,3,4,5);
 			fig[1] = choose(0,1,2,3,4,5);
 			fig[2] = choose(0,1,2,3,4,5);
+			player_turn = !player_turn;
 			tap = 0;
 		}
 	break;
@@ -30,6 +35,11 @@ switch(state){
 			state = State.PLAYING;
 			player_time[0] = max_time;
 			player_time[1] = max_time;
+			player_turn = !player_turn;
+			fig[0] = choose(0,1,2,3,4,5);
+			fig[1] = choose(0,1,2,3,4,5);
+			fig[2] = choose(0,1,2,3,4,5);
+			tap = 0;
 		}
 	break;
 }
