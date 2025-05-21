@@ -1,3 +1,5 @@
+randomize();
+
 global.display_width = 380;
 global.display_height = 640;
 
@@ -25,8 +27,18 @@ enum State{
 state = State.MENU;
 
 tap = 0;
-roll = 1;
+tap_cd = 0;
+roll = 0;
 
-fig[0] = 0;
-fig[1] = 0;
-fig[2] = 0;
+var i = 0;
+repeat(3){
+	fig[i] = 0;
+	fig_shake[i] = 0;
+	fig_ang[i] = 0;
+	fig_len[i] = 0;
+	i ++;
+}
+
+
+bg_y = 0;
+line_y = 286;
