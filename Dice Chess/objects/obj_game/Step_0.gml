@@ -1,16 +1,34 @@
 //global.display_width = display_get_width();
 //global.display_height = display_get_height();
 if (mouse_check_button_pressed(mb_left)){
-	tap = 1;
-	if (tap_cd != 0){
-		state = State.MENU;
-		player_time[0] = max_time;
-		player_time[1] = max_time;
-		player_turn = !player_turn;
-		tap = 0;
+	if (state != State.MENU or mouse_x < global.display_width-32) and (changing_time = false){
+		tap = 1;
+		if (tap_cd != 0){
+			state = State.MENU;
+			player_time[0] = max_time;
+			player_time[1] = max_time;
+			player_turn = !player_turn;
+			tap = 0;
+		}else{
+			tap_cd = 15;
+		}
 	}else{
-		tap_cd = 15;
+		tap_y = mouse_y;
+		time_change = max_time;
+		changing_time = true;
 	}
+}
+
+if (mouse_check_button(mb_left)) and (changing_time){
+	max_time = time_change+round((tap_y-mouse_y)/10)*5*60;
+	if (max_time < 0) max_time = 0;
+	player_time[0] = max_time;
+	player_time[1] = max_time;
+}
+
+if (mouse_check_button_released(mb_left)) and (changing_time){
+	tap_y = -100;
+	changing_time = false;
 }
 
 

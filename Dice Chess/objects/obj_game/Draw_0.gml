@@ -62,7 +62,7 @@ repeat(3){
 	}
 	
 	//draw fig
-	draw_sprite_ext(spr_figs,fig[i],global.display_width/2+lengthdir_x(fig_len[i],90+fig_ang[i]),global.display_height/2-64+64*i+lengthdir_y(fig_len[i],90+fig_ang[i]),0.5+0.5*(16-fig_len[i])/16,1,90+fig_ang[i]/2,c_white,1);
+	draw_sprite_ext(spr_figs,fig[i]+player_turn*6,global.display_width/2+32+lengthdir_x(fig_len[i],90+fig_ang[i]),global.display_height/2-128+128*i+lengthdir_y(fig_len[i],90+fig_ang[i]),0.5+0.5*(16-fig_len[i])/16,1,90+fig_ang[i]/2,c_white,1);
 	
 	i ++;
 }
@@ -71,3 +71,26 @@ draw_set_color(c_black);
 draw_line_width(68+3,global.display_height/2+(-1+player_turn*2)*64-3,68+3,global.display_height/2+(-1+player_turn*2)*line_y-3,3);
 draw_set_color(c_white);
 draw_line_width(68,global.display_height/2+(-1+player_turn*2)*64,68,global.display_height/2+(-1+player_turn*2)*line_y,3);
+
+
+//slide to change time
+if (state = State.MENU){
+	if (changing_time){
+		var i = 0;
+		var amount = 60;
+		var size = 350;
+		repeat(amount){
+			//draw_set_alpha(1/point_distance(0,global.display_height/2-size+i*size/amount*2,0,global.display_height/2-size+i*size/amount*2));
+			
+			draw_line_width(global.display_width-30,global.display_height/2-size+i*size/amount*2,global.display_width-2,global.display_height/2-size+i*size/amount*2,2);
+			i ++;
+		}
+		draw_set_alpha(1);
+	}else{
+		draw_set_valign(fa_middle);
+		draw_set_halign(fa_center);
+		draw_set_font(fnt_1);
+		draw_text_transformed(global.display_width-16,global.display_height/2,"SLIDE HERE TO CHANGE TIME",1,1,90);
+	}
+}
+

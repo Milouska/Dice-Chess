@@ -3,15 +3,9 @@ randomize();
 global.display_width = 380;
 global.display_height = 640;
 
-//var _ratio = global.display_width / global.display_height;
-//var _display_ratio = display_get_width() / display_get_height();
-/*
-if (_display_ratio < _ratio){
-	//global.display_height = 640;
-	global.display_width = global.display_height * _display_ratio;
-}
-*/
-max_time = 60*20; //2*60*60
+max_time = 3*60*60; //2*60*60
+time_change = 0;
+changing_time = false;
 
 player_time[0] = max_time;
 player_time[1] = max_time;
@@ -27,6 +21,7 @@ enum State{
 state = State.MENU;
 
 tap = 0;
+tap_y = -100;
 tap_cd = 0;
 roll = 0;
 
