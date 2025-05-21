@@ -77,12 +77,13 @@ draw_line_width(68,global.display_height/2+(-1+player_turn*2)*64,68,global.displ
 if (state = State.MENU){
 	if (changing_time){
 		var i = 0;
-		var amount = 60;
-		var size = 350;
+		var amount = 100;
+		var size = 1000;
 		repeat(amount){
-			//draw_set_alpha(1/point_distance(0,global.display_height/2-size+i*size/amount*2,0,global.display_height/2-size+i*size/amount*2));
+			var l_y = global.display_height/2-size+i*size/amount*2-(tap_y-mouse_y);
+			draw_set_alpha(0.6-(abs(l_y-global.display_height/2)/global.display_height));
 			
-			draw_line_width(global.display_width-30,global.display_height/2-size+i*size/amount*2,global.display_width-2,global.display_height/2-size+i*size/amount*2,2);
+			draw_line_width(global.display_width-30,l_y,global.display_width-2,l_y,2);
 			i ++;
 		}
 		draw_set_alpha(1);
