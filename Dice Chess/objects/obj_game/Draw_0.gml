@@ -58,10 +58,15 @@ repeat(3){
 
 	if ((fig_shake[i]+2)%8 = 0){
 		fig[i] = choose(0,1,2,3,4,5);
-		if (fig_shake[i] != 0) audio_play_sound(snd_dice,10,0,1,0,random_range(0.8,1.2));
+		if (fig_shake[i] != 0) audio_play_sound(snd_dice,10,0,1,0,random_range(1,1.4));
 	}
 	
 	//draw fig
+	//draw_set_alpha(0.5);
+	//draw_set_color(c_black);
+	draw_sprite_ext(spr_figs,fig[i]+player_turn*6,global.display_width/2+32+lengthdir_x(fig_len[i],90+fig_ang[i])+8,global.display_height/2-128+128*i+lengthdir_y(fig_len[i],90+fig_ang[i])-8,0.5+0.5*(16-fig_len[i])/16,1,90+fig_ang[i]/2,c_black,0.5);
+	draw_set_alpha(1);
+	draw_set_color(c_white);
 	draw_sprite_ext(spr_figs,fig[i]+player_turn*6,global.display_width/2+32+lengthdir_x(fig_len[i],90+fig_ang[i]),global.display_height/2-128+128*i+lengthdir_y(fig_len[i],90+fig_ang[i]),0.5+0.5*(16-fig_len[i])/16,1,90+fig_ang[i]/2,c_white,1);
 	
 	i ++;
