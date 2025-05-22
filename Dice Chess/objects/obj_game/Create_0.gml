@@ -3,6 +3,10 @@ randomize();
 global.display_width = 380;
 global.display_height = 640;
 
+//vertical = true;
+
+virtual_key_add(0,0,1000,1000,mb_left)
+
 max_time = 3*60*60; //2*60*60
 time_change = 0;
 changing_time = false;
@@ -31,9 +35,10 @@ repeat(3){
 	fig_shake[i] = 0;
 	fig_ang[i] = 0;
 	fig_len[i] = 0;
+	fig_y[i] = 0;
 	i ++;
 }
 
 
-bg_y = 0;
+bg_y = -640;
 line_y = 286;

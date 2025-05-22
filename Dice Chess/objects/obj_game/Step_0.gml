@@ -1,6 +1,18 @@
 //global.display_width = display_get_width();
 //global.display_height = display_get_height();
-if (mouse_check_button_pressed(mb_left)){
+/*
+if (vertical){
+	camera_set_view_angle(view_camera[0],270);
+	//view_wport[0] = display_get_width();
+	//view_hport[0] = display_get_height();
+
+	//window_set_rectangle(0, 0, _dw, _dh);
+
+
+	//camera_set_view_size(view_camera[0],global.display_width,global.display_height);
+}
+*/
+if (mouse_check_button_pressed(mb_left) or keyboard_check_pressed(vk_space)){
 	if (state != State.MENU or mouse_x < global.display_width-32) and (changing_time = false){
 		tap = 1;
 		if (tap_cd != 0){
@@ -79,6 +91,7 @@ var i = 0;
 repeat(3){
 	if (fig_shake[i] = 1) audio_play_sound(snd_dice,10,0,1,0,random_range(0.8,1.2));
 	fig_shake[i] = approach(fig_shake[i],0,1);
+	if (fig_shake[i] <= 0) fig_y[i] = approach(fig_y[i],0,2); else fig_y[i] = approach(fig_y[i],12,4);
 	i ++;
 }
 
