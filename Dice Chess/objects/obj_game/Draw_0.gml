@@ -73,10 +73,11 @@ repeat(3){
 	i ++;
 }
 
+//lines
 draw_set_color(c_black);
-draw_line_width(68+3,global.display_height/2+(-1+player_turn*2)*64-3,68+3,global.display_height/2+(-1+player_turn*2)*line_y-3,3);
+draw_line_width(68+3,global.display_height/2+(-1+player_turn*2)*46-3,68+3,global.display_height/2+(-1+player_turn*2)*line_y-3,3);
 draw_set_color(c_white);
-draw_line_width(68,global.display_height/2+(-1+player_turn*2)*64,68,global.display_height/2+(-1+player_turn*2)*line_y,3);
+draw_line_width(68,global.display_height/2+(-1+player_turn*2)*46,68,global.display_height/2+(-1+player_turn*2)*line_y,3);
 
 
 //slide to change time

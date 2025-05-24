@@ -1,7 +1,7 @@
 randomize();
 
 global.display_width = 380;
-global.display_height = 640;
+global.display_height = 600;
 
 //vertical = true;
 

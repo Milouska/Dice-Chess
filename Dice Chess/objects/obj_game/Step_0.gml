@@ -101,4 +101,4 @@ if (state = State.MENU){
 	bg_y = lerp(bg_y,-1280*player_turn,0.2);
 }
 tap_cd = approach(tap_cd,0,1);
-line_y = lerp(line_y,286,0.2);
+line_y = lerp(line_y,266,0.2);
